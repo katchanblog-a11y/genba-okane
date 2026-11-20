@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>軽貨物ドライバーの手取り計算｜ガソリン代・車両費・税金を引いて残るお金｜現場のお金ナビ</title>
+<meta name="description" content="軽貨物ドライバー（個人事業主）の手取りを計算します。売上からガソリン代・リース代・任意保険・手数料、さらに所得税・住民税・国保・年金・消費税まで引いて、月にいくら残るかがわかります。2026年分の制度に対応。">
+<link rel="canonical" href="https://genba-okane.com/tools/keikamotsu-tedori.html">
+<meta property="og:title" content="軽貨物ドライバーの手取り計算｜現場のお金ナビ">
+<meta property="og:description" content="売上から、ガソリン代・車両費・税金・社会保険を引いて、月にいくら残るかを計算します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://genba-okane.com/tools/keikamotsu-tedori.html">
+<meta property="og:site_name" content="現場のお金ナビ">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"軽貨物ドライバーの手取り計算","url":"https://genba-okane.com/tools/keikamotsu-tedori.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"inLanguage":"ja"}
+</script>
+</head>
+<body>
+<div class="pr-bar">当サイトはアフィリエイト広告を利用しています</div>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark">¥</span>現場のお金ナビ</a>
+    <nav class="site-nav"><a href="/#tools">計算ツール</a><a href="/about.html">運営者情報</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="breadcrumb"><a href="/">ホーム</a> › 軽貨物ドライバーの手取り計算</p>
+
+  <section class="hero" style="padding-top:18px">
+    <span class="badge">2026年分の税制に対応</span>
+    <h1>軽貨物ドライバーの<span class="hl">手取り計算</span></h1>
+    <p class="lede">売上から、ガソリン代・車両費・保険・手数料、そして税金と社会保険まで全部引いて、<b>月に本当に残るお金</b>を出します。入力は月の金額でOKです。</p>
+  </section>
+
+  <form class="card" id="f" autocomplete="off" onsubmit="return false">
+    <div class="form-grid">
+      <div class="field wide">
+        <label for="revenue">月の売上（委託報酬の合計）</label>
+        <div class="input-unit"><input id="revenue" inputmode="numeric" value="500,000"><span>円/月</span></div>
+        <span class="hint">委託元から振り込まれる前の、報酬の総額（税込）を入れてください。</span>
+      </div>
+      <div class="field">
+        <label for="days">月の稼働日数</label>
+        <div class="input-unit"><input id="days" inputmode="numeric" value="24"><span>日</span></div>
+      </div>
+      <div class="field">
+        <label for="km">1日の走行距離</label>
+        <div class="input-unit"><input id="km" inputmode="numeric" value="100"><span>km</span></div>
+      </div>
+      <div class="field">
+        <label for="vehicle">車両費（リース・ローン・レンタル）</label>
+        <div class="input-unit"><input id="vehicle" inputmode="numeric" value="35,000"><span>円/月</span></div>
+        <span class="hint">自分の車を一括で買った場合は、0円か、買値÷48か月の額を目安に。</span>
+      </div>
+      <div class="field">
+        <label for="insurance">任意保険（黒ナンバー）</label>
+        <div class="input-unit"><input id="insurance" inputmode="numeric" value="12,000"><span>円/月</span></div>
+      </div>
+    </div>
+
+    <details class="more">
+      <summary>くわしい条件を変える（燃費・手数料・申告方法など）</summary>
+      <div class="form-grid">
+        <div class="field">
+          <label for="kmPerL">燃費</label>
+          <div class="input-unit"><input id="kmPerL" inputmode="decimal" value="13"><span>km/L</span></div>
+          <span class="hint">荷物を積んだ街乗りの実燃費。軽バンなら10〜15km/Lが多めです。</span>
+        </div>
+        <div class="field">
+          <label for="fuelPrice">ガソリン単価</label>
+          <div class="input-unit"><input id="fuelPrice" inputmode="numeric" value="160"><span>円/L</span></div>
+          <span class="hint">お住まいの地域の価格に合わせてください。</span>
+        </div>
+        <div class="field">
+          <label for="feeRate">委託元・元請けへの手数料</label>
+          <div class="input-unit"><input id="feeRate" inputmode="decimal" value="0"><span>%</span></div>
+          <span class="hint">報酬から差し引かれる事務手数料・チャーター料など。なければ0。</span>
+        </div>
+        <div class="field">
+          <label for="other">その他の経費</label>
+          <div class="input-unit"><input id="other" inputmode="numeric" value="20,000"><span>円/月</span></div>
+          <span class="hint">スマホ代・駐車場・高速代・オイル交換・タイヤなど。</span>
+        </div>
+        <div class="field">
+          <label for="hours">1日の稼働時間</label>
+          <div class="input-unit"><input id="hours" inputmode="decimal" value="10"><span>時間</span></div>
+          <span class="hint">時給の計算に使います。積み込み・待機も含めて。</span>
+        </div>
+        <div class="field">
+          <label for="filingType">確定申告の方法</label>
+          <select id="filingType">
+            <option value="blue65">青色申告（65万円控除）</option>
+            <option value="white">白色申告</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="invoice">インボイス（適格請求書発行事業者）</label>
+          <select id="invoice">
+            <option value="none">登録していない</option>
+            <option value="twenty">登録している（2割特例）</option>
+            <option value="simple">登録している（簡易課税）</option>
+          </select>
+          <span class="hint">2割特例は令和8年分（2026年分）までです。</span>
+        </div>
+        <div class="field">
+          <label for="healthType">健康保険</label>
+          <select id="healthType">
+            <option value="city">市町村の国民健康保険</option>
+            <option value="union">国保組合（定額）</option>
+            <option value="dependent">家族の扶養に入っている</option>
+          </select>
+        </div>
+        <div class="field" id="healthMonthlyField" hidden>
+          <label for="healthMonthly">国保組合の保険料</label>
+          <div class="input-unit"><input id="healthMonthly" inputmode="numeric" value="20,000"><span>円/月</span></div>
+        </div>
+        <div class="field">
+          <label class="check"><input type="checkbox" id="age40to64">40〜64歳（介護保険料がかかる）</label>
+        </div>
+      </div>
+    </details>
+  </form>
+
+  <section class="result" aria-live="polite">
+    <div class="r-label">あなたの手取り（月あたり）</div>
+    <div class="r-big"><span id="outMonthly">-</span><small>円</small></div>
+    <div class="r-row">
+      <div><b id="outYear">-</b><span>年間の手取り</span></div>
+      <div><b id="outDay">-</b><span>1日あたり</span></div>
+      <div><b id="outHour">-</b><span>時給換算</span></div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">売上はどこへ消えている？（月あたり）</h3>
+    <div class="bar" id="bar"></div>
+    <ul class="legend" id="legend"></ul>
+    <p class="muted" style="margin:12px 0 0">売上に対する手取りの割合：<b id="outRate">-</b></p>
+  </section>
+
+  <div class="next" id="next"></div>
+
+  <article class="article">
+    <h2>この計算でわかること</h2>
+    <p>軽貨物ドライバーの「月収50万円」は、そのまま使えるお金ではありません。個人事業主は、ガソリン代や車両費を自分で払い、さらに所得税・住民税・国民健康保険・国民年金も自分で納めます。このツールは、それらを全部差し引いて、生活に使えるお金がいくら残るかを計算します。</p>
+
+    <h2>計算の前提</h2>
+    <table class="simple">
+      <tr><th>項目</th><th>計算方法</th></tr>
+      <tr><td>ガソリン代</td><td>1日の走行距離 × 稼働日数 ÷ 燃費 × ガソリン単価</td></tr>
+      <tr><td>所得税・住民税</td><td>令和8年分（2026年分）の税率・基礎控除で計算。扶養家族なしの前提です。</td></tr>
+      <tr><td>国民健康保険</td><td>自治体ごとに料率が違うため、全国平均に近い料率での概算です。</td></tr>
+      <tr><td>国民年金</td><td>令和8年度の保険料（月17,920円）で計算。</td></tr>
+      <tr><td>消費税</td><td>インボイス登録している場合のみ。売上を税込として、2割特例または簡易課税（第五種・みなし仕入率50%）で計算。</td></tr>
+    </table>
+    <p class="muted" style="margin-top:10px">あくまで目安です。実際の税額は、ほかの所得や控除、お住まいの自治体によって変わります。正確な金額は税理士や税務署にご確認ください。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>車を一括で買った場合、車両費はどう入れればいい？</dt>
+      <dd>購入した車は、毎月の支払いがなくても、何年かに分けて経費（減価償却）にできます。目安として「買った金額 ÷ 48か月」を入れると、税金の計算が実態に近くなります。中古車は使える年数がもっと短くなることがあります。</dd>
+      <dt>インボイスに登録すると、手取りは減る？</dt>
+      <dd>登録すると消費税を納める必要があるため、同じ売上なら手取りは少し減ります。一方で、未登録だと委託元から報酬を下げられるケースもあります。上の「インボイス」を切り替えると、差額を比べられます。</dd>
+      <dt>白色申告と青色申告でどれくらい違う？</dt>
+      <dd>青色申告（65万円控除）は、所得から最大65万円を差し引けるので、税金と国保が安くなります。「確定申告の方法」を切り替えて比べてみてください。</dd>
+    </dl>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="links"><a href="/">ホーム</a><a href="/about.html">運営者情報</a><a href="/privacy.html">プライバシーポリシー・広告について</a></div>
+    <p>当サイトはアフィリエイト広告を利用しています。掲載している情報は執筆時点のものです。</p>
+    <p>© 現場のお金ナビ</p>
+  </div>
+</footer>
+
+<script type="module">
+import { calcKeikamotsu } from '/js/keikamotsu.js';
+import { NEXT_STEPS } from '/js/next-steps.js';
+
+const $ = (id) => document.getElementById(id);
+const yen = (n) => Math.round(n).toLocaleString('ja-JP');
+const val = (id) => Number(String($(id).value).replace(/[^\d.]/g, '')) || 0;
+
+const COLORS = {
+  net:'#2e8b57', fuel:'#f5a400', vehicle:'#e07b39', insurance:'#d9a441', fee:'#b5651d', other:'#c9b48a',
+  consumption:'#8c8c8c', income:'#4f6d8f', resident:'#6c87a8', health:'#8a6fa3', pension:'#a38bb8'
+};
+
+const NUM_IDS = ['revenue','days','km','vehicle','insurance','kmPerL','fuelPrice','feeRate','other','hours','healthMonthly'];
+
+function render() {
+  $('healthMonthlyField').hidden = $('healthType').value !== 'union';
+  const r = calcKeikamotsu({
+    revenue: val('revenue'), days: val('days'), hours: val('hours'), km: val('km'),
+    kmPerL: val('kmPerL'), fuelPrice: val('fuelPrice'), vehicle: val('vehicle'),
+    insurance: val('insurance'), feeRate: val('feeRate'), other: val('other'),
+    filingType: $('filingType').value, invoice: $('invoice').value,
+    age40to64: $('age40to64').checked, healthType: $('healthType').value,
+    healthMonthly: val('healthMonthly'),
+  });
+
+  $('outMonthly').textContent = yen(r.monthlyNet);
+  $('outYear').textContent = yen(r.annualNet) + '円';
+  $('outDay').textContent = yen(r.perDay) + '円';
+  $('outHour').textContent = yen(r.perHour) + '円';
+  $('outRate').textContent = Math.round(r.netRate * 100) + '%';
+
+  const items = r.breakdown.filter((b) => b.value > 0);
+  const total = items.reduce((a, b) => a + b.value, 0) || 1;
+  $('bar').innerHTML = items.map((b) =>
+    `<i style="width:${(b.value / total * 100).toFixed(2)}%;background:${COLORS[b.key]}" title="${b.label}"></i>`).join('');
+  $('legend').innerHTML = items.map((b) =>
+    `<li><span class="nm"><span class="sw" style="background:${COLORS[b.key]}"></span>${b.label}</span><span class="v">${yen(b.value)}円</span></li>`).join('');
+
+  // 状況に合った「次の一手」だけを出す（URLが未設定のものは出さない）
+  const ctx = { ...r, revenueMonthly: val('revenue'), vehicle: val('vehicle'), invoice: $('invoice').value };
+  $('next').innerHTML = NEXT_STEPS.filter((s) => s.url && s.when(ctx)).slice(0, 2).map((s) =>
+    `<div class="card"><h3>${s.title}</h3><p>${s.body}</p><a class="btn" href="${s.url}">${s.cta}</a></div>`).join('');
+}
+
+for (const id of NUM_IDS) {
+  const el = $(id);
+  el.addEventListener('input', render);
+  el.addEventListener('blur', () => {
+    const n = val(id);
+    if (!['kmPerL','feeRate','hours'].includes(id)) el.value = n.toLocaleString('ja-JP');
+  });
+}
+for (const id of ['filingType','invoice','healthType','age40to64']) $(id).addEventListener('change', render);
+render();
+</script>
+</body>
+</html>
