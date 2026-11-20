@@ -109,3 +109,6 @@ table.simple th{background:#f1eee7;font-weight:700}
 .input-unit{width:100%}
 .r-row b{white-space:nowrap}
 @media(max-width:480px){.r-row{gap:6px}.r-row div{padding:8px 8px}.r-row b{font-size:15px}}
+html{scroll-behavior:smooth}
+h2[id],h3[id]{scroll-margin-top:16px}
+.note a{color:var(--navy)}
