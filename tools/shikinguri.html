@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>個人事業主の資金繰り表（無料・登録不要）｜ブラウザで入力するだけ、お金が足りなくなる月がわかる｜現場のお金ナビ</title>
+<meta name="description" content="個人事業主・一人親方・軽貨物ドライバー向けの資金繰り表。Excel不要で、入金と支払いを月ごとに入れるだけで、残高の推移とお金が足りなくなる月がひと目でわかります。CSVで保存も可能。">
+<link rel="canonical" href="https://genba-okane.com/tools/shikinguri">
+<meta property="og:title" content="個人事業主の資金繰り表（無料・登録不要）｜現場のお金ナビ">
+<meta property="og:description" content="入金と支払いを入れるだけで、お金が足りなくなる月がわかる資金繰り表。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://genba-okane.com/tools/shikinguri">
+<meta property="og:site_name" content="現場のお金ナビ">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"個人事業主の資金繰り表","url":"https://genba-okane.com/tools/shikinguri","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"inLanguage":"ja"}
+</script>
+<style>
+.sg-wrap{overflow-x:auto;margin:0 -4px}
+table.sg{border-collapse:collapse;font-size:14px;background:#fff;min-width:640px;width:100%}
+table.sg th,table.sg td{border:1px solid var(--line);padding:0;text-align:right;white-space:nowrap}
+table.sg th{background:#f1eee7;font-weight:700;padding:7px 8px;text-align:center}
+table.sg td.lbl{text-align:left;padding:6px 8px;font-weight:600;background:#faf8f3;position:sticky;left:0;z-index:1;min-width:132px}
+table.sg td.lbl small{display:block;font-weight:400;color:var(--ink-3);font-size:11px}
+table.sg input{width:100%;min-width:84px;border:0;padding:8px 8px;text-align:right;font:inherit;font-variant-numeric:tabular-nums;background:transparent}
+table.sg input:focus{outline:2px solid var(--safety);background:var(--safety-pale)}
+table.sg tr.sum td{padding:7px 8px;font-weight:800;font-variant-numeric:tabular-nums;background:#f7f5f0}
+table.sg tr.sec td{background:var(--ink);color:#fff;text-align:left;padding:4px 8px;font-size:12px;font-weight:700}
+table.sg td.neg{color:var(--warn);background:#fdecea !important}
+.alert{margin-top:14px;border-radius:12px;padding:14px 16px;font-weight:700}
+.alert.ok{background:var(--keep-pale);color:#1f5e3b}
+.alert.ng{background:#fdecea;color:#8a2a17}
+.chart{display:flex;align-items:flex-end;gap:6px;height:150px;margin-top:14px;padding:10px 6px 0;border-bottom:2px solid var(--line);position:relative}
+.chart .c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;font-size:11px;color:var(--ink-3)}
+.chart .b{width:70%;border-radius:6px 6px 0 0;background:var(--keep);min-height:2px}
+.chart .b.neg{background:var(--warn)}
+.chart .v{font-weight:700;color:var(--ink);margin-bottom:3px;font-variant-numeric:tabular-nums}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.toolbar button{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink)}
+.toolbar button:hover{border-color:var(--safety)}
+</style>
+</head>
+<body>
+<div class="pr-bar">当サイトはアフィリエイト広告を利用しています</div>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark">¥</span>現場のお金ナビ</a>
+    <nav class="site-nav"><a href="/#tools">計算ツール</a><a href="/about">運営者情報</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="breadcrumb"><a href="/">ホーム</a> › 個人事業主の資金繰り表</p>
+
+  <section class="hero" style="padding-top:18px">
+    <span class="badge">無料・登録不要・Excel不要</span>
+    <h1>個人事業主の<span class="hl">資金繰り表</span></h1>
+    <p class="lede">月ごとの「入ってくるお金」と「出ていくお金」を入れるだけ。<b>お金が足りなくなる月</b>が前もってわかります。入力した内容はこのブラウザの中だけに保存され、外には送信されません。</p>
+  </section>
+
+  <div class="card">
+    <div class="form-grid" style="margin-bottom:14px">
+      <div class="field">
+        <label for="start">今の手元のお金（口座・現金の合計）</label>
+        <div class="input-unit"><input id="start" inputmode="numeric" value="300,000"><span>円</span></div>
+      </div>
+      <div class="field">
+        <label for="month0">表のはじまりの月</label>
+        <select id="month0"></select>
+      </div>
+    </div>
+    <div class="sg-wrap"><table class="sg" id="sg"></table></div>
+    <p class="muted" style="margin:8px 0 0">「入金」は実際に口座に入る月に入れます（働いた月ではありません）。横にスクロールできます。</p>
+    <div class="toolbar">
+      <button type="button" id="csv">CSVで保存</button>
+      <button type="button" id="sample">記入例に戻す</button>
+      <button type="button" id="clear">すべて0にする</button>
+    </div>
+  </div>
+
+  <div id="alert" class="alert ok" aria-live="polite"></div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">月末の手元のお金</h3>
+    <div class="chart" id="chart"></div>
+  </div>
+
+  <div class="next" id="next"></div>
+
+  <article class="article">
+    <h2>資金繰り表の使い方</h2>
+    <ol>
+      <li><b>今の手元のお金</b>に、口座と現金の合計を入れます。</li>
+      <li><b>入金</b>の行に、売上が<b>実際に振り込まれる月</b>の金額を入れます。月末締め・翌月末払いなら、10月に働いた分は11月の欄です。</li>
+      <li><b>支払い</b>の行に、その月に口座から出ていくお金を入れます。カード払いの経費は、<b>引き落とされる月</b>に入れるのがポイントです。</li>
+      <li>月末の残高が赤くなった月が、<b>お金が足りなくなる月</b>です。</li>
+    </ol>
+
+    <h2>足りない月が見つかったら</h2>
+    <p>まずは、足りなくなる月より前にできることを考えます。</p>
+    <ul>
+      <li><b>支払いを後ろにずらす</b>：経費をカード払いにする、税金や国保の分割納付を役所に相談する。</li>
+      <li><b>入金を前に寄せる</b>：取引先に支払日を相談する。急ぎなら、請求書を買い取ってもらう（ファクタリング）方法もあります。</li>
+      <li><b>時間があるなら融資</b>：数か月先の不足なら、公的な融資のほうがコストは低く済みます。</li>
+    </ul>
+    <p>具体的な方法と手数料は、こちらの記事で比較しています。</p>
+    <ul>
+      <li><a href="/articles/keikamotsu-nyukin-hayaku">軽貨物ドライバーの報酬を早く受け取る4つの方法</a></li>
+      <li><a href="/articles/hitorioyakata-factoring">一人親方のファクタリング完全ガイド</a></li>
+    </ul>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>税金や国民健康保険はどの月に入れればいい？</dt>
+      <dd>実際に払う月に入れます。所得税は3月（振替納税なら4月ごろ）、住民税と国民健康保険は6月ごろから分割で届くことが多いです。忘れやすい大きな支払いなので、必ず入れておきましょう。</dd>
+      <dt>入力した内容はどこに保存される？</dt>
+      <dd>お使いのブラウザの中だけに保存されます。当サイトのサーバーには送信されません。別のスマホやパソコンで続きを開くことはできないので、残したいときは「CSVで保存」を使ってください。</dd>
+    </dl>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="links"><a href="/">ホーム</a><a href="/about">運営者情報</a><a href="/privacy">プライバシーポリシー・広告について</a></div>
+    <p>当サイトはアフィリエイト広告を利用しています。掲載している情報は執筆時点のものです。</p>
+    <p>© 現場のお金ナビ</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var MONTHS = 6;
+  var ROWS = [
+    {sec:'入金（入ってくるお金）'},
+    {id:'sales', label:'売上の入金', hint:'実際に振り込まれる月', type:'in', sample:[450000,0,480000,450000,450000,470000]},
+    {id:'otherIn', label:'その他の入金', hint:'還付金など', type:'in', sample:[0,0,0,0,0,0]},
+    {sec:'支払い（出ていくお金）'},
+    {id:'vehicle', label:'材料費・ガソリン代など', hint:'事業の経費', type:'out', sample:[90000,95000,90000,90000,90000,90000]},
+    {id:'fixed', label:'車両費・家賃などの固定費', hint:'リース・ローン含む', type:'out', sample:[60000,60000,60000,60000,60000,60000]},
+    {id:'tax', label:'税金・国保・年金', hint:'払う月に入れる', type:'out', sample:[45000,45000,45000,120000,45000,45000]},
+    {id:'living', label:'生活費', hint:'自分の給料のぶん', type:'out', sample:[200000,200000,200000,200000,200000,200000]},
+    {id:'otherOut', label:'その他の支払い', hint:'返済・一時的な出費', type:'out', sample:[0,0,0,0,0,0]}
+  ];
+  var KEY = 'genba-okane:shikinguri:v1';
+  var $ = function(id){ return document.getElementById(id); };
+  var num = function(v){ return Number(String(v).replace(/[^\d.-]/g,'')) || 0; };
+  var yen = function(n){ return Math.round(n).toLocaleString('ja-JP'); };
+
+  var state = load() || sampleState();
+
+  function sampleState(){
+    var d = new Date(); var s = {start:300000, y:d.getFullYear(), m:d.getMonth()+1, v:{}};
+    ROWS.forEach(function(r){ if(r.id) s.v[r.id] = r.sample.slice(); });
+    return s;
+  }
+  function load(){ try { var x = localStorage.getItem(KEY); return x ? JSON.parse(x) : null; } catch(e){ return null; } }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
+  function label(i){ var m = state.m + i; var y = state.y + Math.floor((m-1)/12); m = ((m-1)%12)+1; return y + '年' + m + '月'; }
+
+  function buildMonthSelect(){
+    var sel = $('month0'); sel.innerHTML = '';
+    var d = new Date();
+    for (var k=-2; k<=10; k++){
+      var m = d.getMonth()+1+k, y = d.getFullYear() + Math.floor((m-1)/12); m = ((m-1)%12+12)%12+1;
+      var o = document.createElement('option'); o.value = y+'-'+m; o.textContent = y+'年'+m+'月';
+      if (y===state.y && m===state.m) o.selected = true;
+      sel.appendChild(o);
+    }
+  }
+
+  function buildTable(){
+    var h = '<tr><th></th>'; for (var i=0;i<MONTHS;i++) h += '<th>'+label(i)+'</th>'; h += '</tr>';
+    h += '<tr class="sum"><td class="lbl">月初の手元のお金</td>' + cells('open') + '</tr>';
+    ROWS.forEach(function(r){
+      if (r.sec){ h += '<tr class="sec"><td colspan="'+(MONTHS+1)+'">'+r.sec+'</td></tr>'; return; }
+      h += '<tr><td class="lbl">'+r.label+'<small>'+r.hint+'</small></td>';
+      for (var i=0;i<MONTHS;i++) h += '<td><input inputmode="numeric" data-r="'+r.id+'" data-i="'+i+'" value="'+yen(state.v[r.id][i]||0)+'" aria-label="'+label(i)+' '+r.label+'"></td>';
+      h += '</tr>';
+    });
+    h += '<tr class="sum"><td class="lbl">入金の合計</td>' + cells('in') + '</tr>';
+    h += '<tr class="sum"><td class="lbl">支払いの合計</td>' + cells('out') + '</tr>';
+    h += '<tr class="sum"><td class="lbl">月末の手元のお金</td>' + cells('close') + '</tr>';
+    $('sg').innerHTML = h;
+  }
+  function cells(k){ var s=''; for (var i=0;i<MONTHS;i++) s += '<td id="'+k+i+'"></td>'; return s; }
+
+  function calc(){
+    var bal = state.start, res = [];
+    for (var i=0;i<MONTHS;i++){
+      var tin=0, tout=0;
+      ROWS.forEach(function(r){ if(!r.id) return; var v = num(state.v[r.id][i]); if (r.type==='in') tin+=v; else tout+=v; });
+      var open = bal; bal = open + tin - tout;
+      res.push({open:open, in:tin, out:tout, close:bal});
+    }
+    return res;
+  }
+
+  function render(){
+    var res = calc(), firstNeg = -1, min = Infinity;
+    res.forEach(function(r,i){
+      ['open','in','out','close'].forEach(function(k){
+        var td = $(k+i); td.textContent = yen(r[k]);
+        td.classList.toggle('neg', (k==='close'||k==='open') && r[k] < 0);
+      });
+      if (r.close < 0 && firstNeg < 0) firstNeg = i;
+      if (r.close < min) min = r.close;
+    });
+    var al = $('alert');
+    if (firstNeg >= 0){
+      al.className = 'alert ng';
+      al.textContent = '⚠ ' + label(firstNeg) + '末に、手元のお金が ' + yen(-res[firstNeg].close) + '円 足りなくなる見込みです。いちばん少ない月は ' + yen(min) + '円 です。';
+    } else {
+      al.className = 'alert ok';
+      al.textContent = '✓ この6か月は、手元のお金がマイナスになる月はありません。いちばん少ない月でも ' + yen(min) + '円 残る見込みです。';
+    }
+    var mx = Math.max.apply(null, res.map(function(r){ return Math.abs(r.close); })) || 1;
+    $('chart').innerHTML = res.map(function(r,i){
+      var hgt = Math.max(2, Math.abs(r.close)/mx*100);
+      return '<div class="c"><span class="v">'+(r.close<0?'-':'')+yen(Math.abs(r.close)/10000)+'万</span><div class="b'+(r.close<0?' neg':'')+'" style="height:'+hgt+'%"></div><span>'+label(i).replace(/^\d+年/,'')+'</span></div>';
+    }).join('');
+    var next = '';
+    if (firstNeg >= 0){
+      next = '<div class="card"><h3>足りない月の前に、打てる手があります</h3><p>支払いを後ろにずらす方法と、入金を前に寄せる方法を、手数料まで比較しました。</p><a class="btn" href="/articles/keikamotsu-nyukin-hayaku">入金を早める方法を見る</a></div>';
+    }
+    $('next').innerHTML = next;
+    save();
+  }
+
+  function onInput(e){
+    var t = e.target;
+    if (t.dataset && t.dataset.r){ state.v[t.dataset.r][+t.dataset.i] = num(t.value); render(); }
+  }
+  function onBlur(e){ var t=e.target; if (t.dataset && t.dataset.r) t.value = yen(num(t.value)); }
+
+  $('sg').addEventListener('input', onInput);
+  $('sg').addEventListener('focusout', onBlur);
+  $('start').value = yen(state.start);
+  $('start').addEventListener('input', function(){ state.start = num(this.value); render(); });
+  $('start').addEventListener('blur', function(){ this.value = yen(num(this.value)); });
+  $('month0').addEventListener('change', function(){ var p=this.value.split('-'); state.y=+p[0]; state.m=+p[1]; buildTable(); render(); });
+  $('sample').addEventListener('click', function(){ state = sampleState(); $('start').value = yen(state.start); buildMonthSelect(); buildTable(); render(); });
+  $('clear').addEventListener('click', function(){ ROWS.forEach(function(r){ if(r.id) state.v[r.id] = [0,0,0,0,0,0]; }); buildTable(); render(); });
+  $('csv').addEventListener('click', function(){
+    var res = calc(), lines = [];
+    lines.push(['項目'].concat([0,1,2,3,4,5].map(label)).join(','));
+    lines.push(['月初の手元のお金'].concat(res.map(function(r){return Math.round(r.open);})).join(','));
+    ROWS.forEach(function(r){ if(r.id) lines.push([r.label].concat(state.v[r.id].map(function(v){return Math.round(num(v));})).join(',')); });
+    lines.push(['入金の合計'].concat(res.map(function(r){return r.in;})).join(','));
+    lines.push(['支払いの合計'].concat(res.map(function(r){return r.out;})).join(','));
+    lines.push(['月末の手元のお金'].concat(res.map(function(r){return Math.round(r.close);})).join(','));
+    var blob = new Blob(['﻿' + lines.join('\n')], {type:'text/csv'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '資金繰り表.csv'; a.click();
+  });
+
+  buildMonthSelect(); buildTable(); render();
+})();
+</script>
+</body>
+</html>
