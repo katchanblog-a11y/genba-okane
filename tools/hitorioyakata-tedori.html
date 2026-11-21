@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一人親方の手取り計算｜材料費・労災・税金を引いて残るお金【2026年】｜現場のお金ナビ</title>
+<meta name="description" content="一人親方（建設業の個人事業主）の手取りを計算します。請負代金から材料費・車両費・道具代、労災の特別加入保険料、所得税・住民税・国保・年金・消費税まで引いて、月にいくら残るかがわかります。2026年分の制度に対応。">
+<link rel="canonical" href="https://genba-okane.com/tools/hitorioyakata-tedori">
+<meta property="og:title" content="一人親方の手取り計算｜現場のお金ナビ">
+<meta property="og:description" content="請負代金から、材料費・労災・税金・社会保険を引いて、月にいくら残るかを計算します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://genba-okane.com/tools/hitorioyakata-tedori">
+<meta property="og:site_name" content="現場のお金ナビ">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"一人親方の手取り計算","url":"https://genba-okane.com/tools/hitorioyakata-tedori","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"inLanguage":"ja"}
+</script>
+</head>
+<body>
+<div class="pr-bar">当サイトはアフィリエイト広告を利用しています</div>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark">¥</span>現場のお金ナビ</a>
+    <nav class="site-nav"><a href="/#tools">計算ツール</a><a href="/about">運営者情報</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="breadcrumb"><a href="/">ホーム</a> › 一人親方の手取り計算</p>
+
+  <section class="hero" style="padding-top:18px">
+    <span class="badge">2026年分の税制に対応</span>
+    <h1>一人親方の<span class="hl">手取り計算</span></h1>
+    <p class="lede">請負代金から、材料費・車両費・道具代、労災の特別加入、そして税金と社会保険まで全部引いて、<b>月に本当に残るお金</b>を出します。入力は月の金額でOKです。</p>
+  </section>
+
+  <form class="card" id="f" autocomplete="off" onsubmit="return false">
+    <div class="form-grid">
+      <div class="field wide">
+        <label for="revenue">月の売上（請負代金の合計）</label>
+        <div class="input-unit"><input id="revenue" inputmode="numeric" value="600,000"><span>円/月</span></div>
+        <span class="hint">元請けから支払われる前の、請求額の合計（税込）を入れてください。</span>
+      </div>
+      <div class="field">
+        <label for="material">材料費・外注費</label>
+        <div class="input-unit"><input id="material" inputmode="numeric" value="120,000"><span>円/月</span></div>
+        <span class="hint">材料が元請け支給なら0円。</span>
+      </div>
+      <div class="field">
+        <label for="vehicle">車両費（リース・ローン）</label>
+        <div class="input-unit"><input id="vehicle" inputmode="numeric" value="30,000"><span>円/月</span></div>
+      </div>
+      <div class="field">
+        <label for="fuel">ガソリン・駐車場・高速</label>
+        <div class="input-unit"><input id="fuel" inputmode="numeric" value="25,000"><span>円/月</span></div>
+      </div>
+      <div class="field">
+        <label for="tools">道具・消耗品</label>
+        <div class="input-unit"><input id="tools" inputmode="numeric" value="15,000"><span>円/月</span></div>
+        <span class="hint">工具・作業着・消耗品など。</span>
+      </div>
+    </div>
+
+    <details class="more">
+      <summary>くわしい条件を変える（労災・申告方法・インボイスなど）</summary>
+      <div class="form-grid">
+        <div class="field">
+          <label for="other">その他の経費</label>
+          <div class="input-unit"><input id="other" inputmode="numeric" value="15,000"><span>円/月</span></div>
+          <span class="hint">スマホ代・組合費・事務用品など。</span>
+        </div>
+        <div class="field">
+          <label class="check" style="margin-top:28px"><input type="checkbox" id="rousai" checked>労災保険に特別加入している</label>
+        </div>
+        <div class="field" id="rousaiField">
+          <label for="rousaiDaily">労災の給付基礎日額</label>
+          <select id="rousaiDaily">
+            <option value="3500">3,500円</option><option value="5000">5,000円</option><option value="7000">7,000円</option>
+            <option value="10000" selected>10,000円</option><option value="12000">12,000円</option><option value="14000">14,000円</option>
+            <option value="16000">16,000円</option><option value="18000">18,000円</option><option value="20000">20,000円</option>
+            <option value="25000">25,000円</option>
+          </select>
+          <span class="hint">保険料＝日額×365日×17/1000（建設の事業）。団体の会費は「その他の経費」へ。</span>
+        </div>
+        <div class="field">
+          <label for="days">月の稼働日数</label>
+          <div class="input-unit"><input id="days" inputmode="numeric" value="22"><span>日</span></div>
+        </div>
+        <div class="field">
+          <label for="hours">1日の稼働時間</label>
+          <div class="input-unit"><input id="hours" inputmode="decimal" value="9"><span>時間</span></div>
+          <span class="hint">移動・段取りも含めて。時給の計算に使います。</span>
+        </div>
+        <div class="field">
+          <label for="filingType">確定申告の方法</label>
+          <select id="filingType">
+            <option value="blue65">青色申告（65万円控除）</option>
+            <option value="white">白色申告</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="invoice">インボイス（適格請求書発行事業者）</label>
+          <select id="invoice">
+            <option value="none">登録していない</option>
+            <option value="twenty">登録している（2割特例）</option>
+            <option value="simple3">登録している（簡易課税・第三種）</option>
+            <option value="simple4">登録している（簡易課税・第四種）</option>
+          </select>
+          <span class="hint">材料も自分で用意する工事は第三種、材料支給で手間だけなら第四種が目安。2割特例は令和8年分までです。</span>
+        </div>
+        <div class="field">
+          <label for="healthType">健康保険</label>
+          <select id="healthType">
+            <option value="city">市町村の国民健康保険</option>
+            <option value="union">建設国保などの国保組合（定額）</option>
+            <option value="dependent">家族の扶養に入っている</option>
+          </select>
+        </div>
+        <div class="field" id="healthMonthlyField" hidden>
+          <label for="healthMonthly">国保組合の保険料</label>
+          <div class="input-unit"><input id="healthMonthly" inputmode="numeric" value="20,000"><span>円/月</span></div>
+        </div>
+        <div class="field">
+          <label class="check"><input type="checkbox" id="age40to64">40〜64歳（介護保険料がかかる）</label>
+        </div>
+      </div>
+    </details>
+  </form>
+
+  <section class="result" aria-live="polite">
+    <div class="r-label">あなたの手取り（月あたり）</div>
+    <div class="r-big"><span id="outMonthly">-</span><small>円</small></div>
+    <div class="r-row">
+      <div><b id="outYear">-</b><span>年間の手取り</span></div>
+      <div><b id="outDay">-</b><span>1日あたり</span></div>
+      <div><b id="outHour">-</b><span>時給換算</span></div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">売上はどこへ消えている？（月あたり）</h3>
+    <div class="bar" id="bar"></div>
+    <ul class="legend" id="legend"></ul>
+    <p class="muted" style="margin:12px 0 0">売上に対する手取りの割合：<b id="outRate">-</b></p>
+  </section>
+
+  <div class="next" id="next"></div>
+
+  <article class="article">
+    <h2>この計算でわかること</h2>
+    <p>一人親方の「月60万円」の請負代金は、そのまま使えるお金ではありません。材料費や車両費を自分で払い、さらに所得税・住民税・国民健康保険・国民年金、そして労災の特別加入保険料も自分で納めます。このツールは、それらを全部差し引いて、生活に使えるお金がいくら残るかを計算します。</p>
+
+    <h2>計算の前提</h2>
+    <table class="simple">
+      <tr><th>項目</th><th>計算方法</th></tr>
+      <tr><td>所得税・住民税</td><td>令和8年分（2026年分）の税率・基礎控除で計算。扶養家族なしの前提です。</td></tr>
+      <tr><td>労災の特別加入</td><td>給付基礎日額 × 365日 × 17/1000（第2種・建設の事業）。保険料は経費ではなく「社会保険料控除」として計算しています。料率は年度で変わることがあります。</td></tr>
+      <tr><td>国民健康保険</td><td>自治体ごとに料率が違うため、全国平均に近い料率での概算です。建設国保などの組合は定額で入力できます。</td></tr>
+      <tr><td>国民年金</td><td>令和8年度の保険料（月17,920円）で計算。</td></tr>
+      <tr><td>消費税</td><td>インボイス登録している場合のみ。売上を税込として、2割特例または簡易課税（第三種70%・第四種60%のみなし仕入率）で計算。</td></tr>
+    </table>
+    <p class="muted" style="margin-top:10px">あくまで目安です。実際の税額は、ほかの所得や控除、お住まいの自治体によって変わります。正確な金額は税理士や税務署にご確認ください。</p>
+
+    <h2>よくある質問</h2>
+    <dl class="faq">
+      <dt>労災の特別加入保険料は経費になる？</dt>
+      <dd>一人親方本人の特別加入保険料は、事業の経費ではなく、確定申告の「社会保険料控除」に入れるのが一般的です。このツールもその前提で計算しています。特別加入団体に払う会費は、経費として「その他の経費」に入れてください。</dd>
+      <dt>建設国保と市町村の国保、どちらが得？</dt>
+      <dd>所得が高めの人は定額の建設国保などの組合のほうが安くなることが多く、所得が低めの人は市町村国保のほうが安くなることがあります。「健康保険」を切り替えて比べてみてください。</dd>
+      <dt>入金が遅くて手元のお金が足りないときは？</dt>
+      <dd>手取りが十分でも、入金のタイミングがずれると支払いに困ることがあります。<a href="/tools/shikinguri">資金繰り表</a>でお金が足りなくなる月を確認し、対策は<a href="/articles/hitorioyakata-factoring">一人親方のファクタリング完全ガイド</a>で比較しています。</dd>
+    </dl>
+  </article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="links"><a href="/">ホーム</a><a href="/about">運営者情報</a><a href="/privacy">プライバシーポリシー・広告について</a></div>
+    <p>当サイトはアフィリエイト広告を利用しています。掲載している情報は執筆時点のものです。</p>
+    <p>© 現場のお金ナビ</p>
+  </div>
+</footer>
+
+<script type="module">
+import { calcOyakata } from '/js/oyakata.js';
+
+const $ = (id) => document.getElementById(id);
+const yen = (n) => Math.round(n).toLocaleString('ja-JP');
+const val = (id) => Number(String($(id).value).replace(/[^\d.]/g, '')) || 0;
+const COLORS = { net:'#2e8b57', material:'#f5a400', vehicle:'#e07b39', fuel:'#d9a441', tools:'#b5651d', other:'#c9b48a',
+  consumption:'#8c8c8c', income:'#4f6d8f', resident:'#6c87a8', health:'#8a6fa3', pension:'#a38bb8', rousai:'#7a9e7e' };
+const NUM_IDS = ['revenue','material','vehicle','fuel','tools','other','days','hours','healthMonthly'];
+
+function render() {
+  $('healthMonthlyField').hidden = $('healthType').value !== 'union';
+  $('rousaiField').hidden = !$('rousai').checked;
+  const r = calcOyakata({
+    revenue: val('revenue'), material: val('material'), vehicle: val('vehicle'), fuel: val('fuel'),
+    tools: val('tools'), other: val('other'), rousai: $('rousai').checked, rousaiDaily: Number($('rousaiDaily').value),
+    days: val('days'), hours: val('hours'), filingType: $('filingType').value, invoice: $('invoice').value,
+    age40to64: $('age40to64').checked, healthType: $('healthType').value, healthMonthly: val('healthMonthly'),
+  });
+  $('outMonthly').textContent = yen(r.monthlyNet);
+  $('outYear').textContent = yen(r.annualNet) + '円';
+  $('outDay').textContent = yen(r.perDay) + '円';
+  $('outHour').textContent = yen(r.perHour) + '円';
+  $('outRate').textContent = Math.round(r.netRate * 100) + '%';
+  const items = r.breakdown.filter((b) => b.value > 0);
+  const total = items.reduce((a, b) => a + b.value, 0) || 1;
+  $('bar').innerHTML = items.map((b) => `<i style="width:${(b.value / total * 100).toFixed(2)}%;background:${COLORS[b.key]}" title="${b.label}"></i>`).join('');
+  $('legend').innerHTML = items.map((b) => `<li><span class="nm"><span class="sw" style="background:${COLORS[b.key]}"></span>${b.label}</span><span class="v">${yen(b.value)}円</span></li>`).join('');
+  $('next').innerHTML = `<div class="card"><h3>元請けからの入金が遅くて困っていませんか？</h3><p>手取りが足りていても、入金のタイミングがずれると材料費の支払いに困ることがあります。資金化の方法を手数料まで比較しました。</p><a class="btn" href="/articles/hitorioyakata-factoring">入金を早める方法を見る</a></div>`;
+}
+for (const id of NUM_IDS) {
+  const el = $(id);
+  el.addEventListener('input', render);
+  el.addEventListener('blur', () => { if (id !== 'hours') el.value = val(id).toLocaleString('ja-JP'); });
+}
+for (const id of ['filingType','invoice','healthType','age40to64','rousai','rousaiDaily']) $(id).addEventListener('change', render);
+render();
+</script>
+</body>
+</html>

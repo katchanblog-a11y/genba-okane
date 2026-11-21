@@ -164,7 +164,9 @@ export function calculate(input) {
           : healthInsurance(bizIncome, members, !!input.age40to64);
 
   const pensionAmount = input.socialInsurance != null ? 0 : pension();
-  const socialDeduction = healthIns + pensionAmount;
+  // 労災の特別加入保険料など、国保・年金以外の社会保険料控除（年額）
+  const extraSocial = Math.max(0, Number(input.extraSocialAnnual) || 0);
+  const socialDeduction = healthIns + pensionAmount + extraSocial;
 
   const taxableIncome = Math.max(
     0,
