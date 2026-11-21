@@ -219,7 +219,7 @@ table.sg td.neg{color:var(--warn);background:#fdecea !important}
     var mx = Math.max.apply(null, res.map(function(r){ return Math.abs(r.close); })) || 1;
     $('chart').innerHTML = res.map(function(r,i){
       var hgt = Math.max(2, Math.abs(r.close)/mx*100);
-      return '<div class="c"><span class="v">'+(r.close<0?'-':'')+yen(Math.abs(r.close)/10000)+'万</span><div class="b'+(r.close<0?' neg':'')+'" style="height:'+hgt+'%"></div><span>'+label(i).replace(/^\d+年/,'')+'</span></div>';
+      return '<div class="c"><span class="v">'+(r.close<0?'-':'')+(Math.round(Math.abs(r.close)/1000)/10).toLocaleString('ja-JP')+'万</span><div class="b'+(r.close<0?' neg':'')+'" style="height:'+hgt+'%"></div><span>'+label(i).replace(/^\d+年/,'')+'</span></div>';
     }).join('');
     var next = '';
     if (firstNeg >= 0){
