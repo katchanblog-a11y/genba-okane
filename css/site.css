@@ -112,3 +112,13 @@ table.simple th{background:#f1eee7;font-weight:700}
 html{scroll-behavior:smooth}
 h2[id],h3[id]{scroll-margin-top:16px}
 .note a{color:var(--navy)}
+
+/* index: topic navigation */
+.topic-nav{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.topic-nav a{display:inline-block;padding:9px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--navy,#22364d);color:var(--navy,#22364d);font-weight:700;text-decoration:none;font-size:.92rem}
+.topic-nav a:hover{background:var(--navy,#22364d);color:#fff}
+.newest{background:#fff;border-left:5px solid #f5a400;border-radius:10px;padding:12px 16px;margin-bottom:8px}
+.newest-h{font-weight:800;margin:0 0 4px}
+.newest ul{margin:0;padding-left:1.2em}
+.newest li{margin:4px 0}
+.cat-desc{margin-top:-6px}
