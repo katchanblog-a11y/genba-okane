@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ファクタリング・請求書カード払いの手数料計算ツール｜受取額と「年利換算」がすぐわかる（無料）｜現場のお金ナビ</title>
+<meta name="description" content="請求書の金額と手数料率を入れるだけで、受け取れる金額・手数料・年利に直した負担がすぐわかる無料ツール。ファクタリング（入金を早める）と請求書カード払い（支払いを延ばす）の両方に対応。個人事業主・一人親方・軽貨物ドライバー向け。">
+<link rel="canonical" href="https://genba-okane.com/tools/tesuryo-keisan">
+<meta property="og:title" content="ファクタリング・カード払いの手数料計算ツール｜現場のお金ナビ">
+<meta property="og:description" content="受取額・手数料・年利換算がすぐわかる無料ツール。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://genba-okane.com/tools/tesuryo-keisan">
+<meta property="og:site_name" content="現場のお金ナビ">
+<meta property="og:image" content="https://genba-okane.com/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ファクタリング・請求書カード払いの手数料計算ツール","url":"https://genba-okane.com/tools/tesuryo-keisan","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"inLanguage":"ja"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"ファクタリングの手数料10%は年利にするとどのくらい？","acceptedAnswer":{"@type":"Answer","text":"30日早く受け取るために10%を払う場合、年に直すと請求書の金額に対して約120%、実際に受け取ったお金に対して約135%の負担になります。1回だけのつなぎなら金額は知れていますが、毎月使い続けると大きな負担になります。"}},
+{"@type":"Question","name":"ファクタリングと請求書カード払いはどちらが安い？","acceptedAnswer":{"@type":"Answer","text":"手数料の目安は、2社間ファクタリングが10%前後、請求書カード払いが3%前後です。支払う側の請求書があり、支払いを後ろにずらせば足りる場合は、カード払いのほうが安く済むことが多いです。"}},
+{"@type":"Question","name":"年利換算はどうやって計算している？","acceptedAnswer":{"@type":"Answer","text":"ファクタリングは「手数料 ÷ 受け取る金額 × 365 ÷ 早く受け取る日数」、カード払いは「手数料 ÷ 支払う金額 × 365 ÷ 延ばす日数」で計算しています。借入の金利と比べやすくするための目安です。"}}
+]}
+</script>
+<style>
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{flex:1;min-width:150px;border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 10px;font:inherit;font-weight:800;font-size:15px;cursor:pointer;color:var(--ink)}
+.tabs button.on{border-color:var(--navy);background:var(--navy);color:#fff}
+.tabs button small{display:block;font-weight:600;font-size:12px;opacity:.8}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:4px 10px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.chips button:hover{border-color:var(--safety)}
+.warn-box{margin-top:14px;border-radius:12px;padding:14px 16px;font-weight:700;background:#fdecea;color:#8a2a17}
+.ok-box{margin-top:14px;border-radius:12px;padding:14px 16px;font-weight:700;background:var(--keep-pale);color:#1f5e3b}
+table.cmp td.me{background:var(--safety-pale);font-weight:800}
+</style>
+</head>
+<body>
+<div class="pr-bar">当サイトはアフィリエイト広告を利用しています</div>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark">¥</span>現場のお金ナビ</a>
+    <nav class="site-nav"><a href="/#tools">計算ツール</a><a href="/#articles">記事</a><a href="/about">運営者情報</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="breadcrumb"><a href="/">ホーム</a> › 手数料計算ツール</p>
+
+  <section class="hero" style="padding-top:18px">
+    <span class="badge">無料・登録不要</span>
+    <h1>ファクタリング・カード払いの<span class="hl">手数料計算</span></h1>
+    <p class="lede">金額と手数料率を入れるだけで、<b>受け取れる金額</b>と<b>年利に直した負担</b>がすぐにわかります。申し込む前に、本当にその手数料で使っていいかを確かめましょう。</p>
+  </section>
+
+  <div class="card">
+    <div class="tabs" role="tablist">
+      <button type="button" class="on" data-mode="factoring">入金を早める<small>ファクタリング</small></button>
+      <button type="button" data-mode="card">支払いを延ばす<small>請求書カード払い</small></button>
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label for="amount" id="amountLabel">請求書の金額</label>
+        <div class="input-unit"><input id="amount" inputmode="numeric" value="300,000"><span>円</span></div>
+        <div class="chips" data-for="amount"><button type="button" data-v="50000">5万</button><button type="button" data-v="100000">10万</button><button type="button" data-v="300000">30万</button><button type="button" data-v="500000">50万</button><button type="button" data-v="1000000">100万</button></div>
+      </div>
+      <div class="field">
+        <label for="rate">手数料率</label>
+        <div class="input-unit"><input id="rate" inputmode="decimal" value="10"><span>%</span></div>
+        <div class="chips" data-for="rate"><button type="button" data-v="3">3%</button><button type="button" data-v="5">5%</button><button type="button" data-v="10">10%</button><button type="button" data-v="15">15%</button></div>
+        <span class="hint" id="rateHint">目安：2社間ファクタリングは10%前後</span>
+      </div>
+      <div class="field wide">
+        <label for="days" id="daysLabel">何日早く受け取るか（本来の入金日まで）</label>
+        <div class="input-unit"><input id="days" inputmode="numeric" value="30"><span>日</span></div>
+        <div class="chips" data-for="days"><button type="button" data-v="14">14日</button><button type="button" data-v="30">30日</button><button type="button" data-v="45">45日</button><button type="button" data-v="60">60日</button></div>
+      </div>
+    </div>
+
+    <div class="result" aria-live="polite">
+      <div class="r-label" id="bigLabel">受け取れる金額</div>
+      <div class="r-big" id="big">270,000<small>円</small></div>
+      <div class="r-row">
+        <div><span>手数料</span><b id="fee">30,000円</b></div>
+        <div><span>年利に直すと</span><b id="apr">約135%</b></div>
+        <div><span>1日あたり</span><b id="perDay">1,000円</b></div>
+      </div>
+    </div>
+    <div id="judge"></div>
+
+    <h2 style="font-size:18px;margin-top:22px">同じ金額で手数料率を比べると</h2>
+    <div style="overflow-x:auto">
+      <table class="simple cmp" id="cmp"></table>
+    </div>
+    <p class="muted" style="font-size:13px">※年利換算は、借入の金利と比べやすくするための目安です。実際の手数料は審査で決まります。</p>
+  </div>
+
+  <section id="next">
+    <h2>計算結果から、次にやること</h2>
+    <div class="next" id="nextCards"></div>
+    <p class="muted">※各サービスのボタンは広告リンクです。条件・手数料は申し込み前に公式サイトで確認してください。</p>
+  </section>
+
+  <section class="article">
+    <h2>この計算ツールの使い方</h2>
+    <ol>
+      <li><b>入金を早めたいとき（ファクタリング）：</b>まだ入金されていない請求書の金額と、提示された手数料率、本来の入金日までの日数を入れます</li>
+      <li><b>支払いを延ばしたいとき（請求書カード払い）：</b>支払う請求書の金額と手数料率、カードの引き落とし日までに延ばせる日数を入れます</li>
+      <li><b>年利換算を見る：</b>同じ10%でも、早める日数が短いほど年利換算は高くなります。何日のために、いくら払うのかを確認しましょう</li>
+    </ol>
+
+    <h2>よくある質問</h2>
+    <h3>ファクタリングの手数料10%は年利にするとどのくらい？</h3>
+    <p>30日早く受け取るために10%を払う場合、年に直すと請求書の金額に対して約120%、実際に受け取ったお金に対して約135%の負担になります。1回だけのつなぎなら金額は知れていますが、毎月使い続けると大きな負担になります（<a href="/articles/keikamotsu-nyukin-hayaku#tesuryo">詳しい解説</a>）。</p>
+    <h3>ファクタリングと請求書カード払いはどちらが安い？</h3>
+    <p>手数料の目安は、2社間ファクタリングが10%前後、請求書カード払いが3%前後です。<b>支払う側の請求書があり、支払いを後ろにずらせば足りる</b>なら、カード払いのほうが安く済むことが多いです（<a href="/articles/seikyusho-card-barai">請求書カード払いとは</a>）。</p>
+    <h3>手数料を下げるには？</h3>
+    <p>取引先が法人で入金実績がある、支払期日が近い、金額がある程度まとまっている請求書ほど、手数料は下がりやすくなります。手数料が審査で決まるサービスは、複数で見積もりを取って比べるのが確実です（<a href="/articles/factoring-shinsa">審査のポイント</a>）。</p>
+    <h3>年利換算はどうやって計算している？</h3>
+    <p>ファクタリングは「手数料 ÷ 受け取る金額 × 365 ÷ 早く受け取る日数」、カード払いは「手数料 ÷ 支払う金額 × 365 ÷ 延ばす日数」で計算しています。</p>
+
+    <h2>あわせて使いたいツール・記事</h2>
+    <ul>
+      <li><a href="/tools/shikinguri">【無料ツール】個人事業主の資金繰り表</a>：いつ・いくら足りなくなるかを先に確認</li>
+      <li><a href="/articles/factoring-kojin-hikaku">個人事業主向けファクタリング3社比較</a></li>
+      <li><a href="/articles/factoring-sokujitsu">ファクタリングは土日も使える？</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="links"><a href="/">ホーム</a><a href="/about">運営者情報</a><a href="/privacy">プライバシーポリシー・広告について</a></div>
+    <p>当サイトはアフィリエイト広告を利用しています。掲載している情報は執筆時点のものです。</p>
+    <p>© 現場のお金ナビ</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const num=v=>Number(String(v).replace(/[^\d.]/g,''))||0;
+  const yen=n=>Math.round(n).toLocaleString('ja-JP');
+  let mode='factoring';
+  const AD={
+    ququmo:{t:'金額が大きいなら、まず無料見積もり：QuQuMo',p:'手数料は1%〜（審査で決定）。請求書の金額に上限がなく、見積もりは無料です。提示された手数料をこのツールに入れて、10%より安ければ申し込む、という使い方ができます。取引先が法人の請求書が対象で、受付は平日です。',u:'https://px.a8.net/svt/ejp?a8mat=4BGQGS+8L01AA+4JGG+BWVTE',px:'https://www16.a8.net/0.gif?a8mat=4BGQGS+8L01AA+4JGG+BWVTE',b:'QuQuMoで無料見積もりを見る'},
+    labol:{t:'土日・夜でも今すぐ：ラボル',p:'手数料は一律10%なので、申し込む前に受け取れる金額が確定します。1万円から、24時間365日受付・最短30分で入金。',u:'https://px.a8.net/svt/ejp?a8mat=4BGQGS+8KELOI+40JM+1BMW42',px:'https://www16.a8.net/0.gif?a8mat=4BGQGS+8KELOI+40JM+1BMW42',b:'ラボルの公式サイトを見る'},
+    paytner:{t:'平日に少額をすぐ：ペイトナー',p:'手数料は一律10%（別に振込手数料）。1万円から申請でき、書類は3点だけ、最短10分で振込。まずは無料の会員登録だけ済ませておくと、いざというときに早く進みます。',u:'https://px.a8.net/svt/ejp?a8mat=4BGQGS+8HFFNM+4PF6+5YRHE',px:'https://www19.a8.net/0.gif?a8mat=4BGQGS+8HFFNM+4PF6+5YRHE',b:'ペイトナーの公式サイトを見る'},
+    card:{t:'支払いを延ばせば足りるなら：ラボル カード払い',p:'材料費・外注費・家賃などの振込を、手持ちのカードで払って引き落とし日まで延ばせます。手数料は3%前後と、ファクタリングより安く済むことが多い方法です。',u:'https://px.a8.net/svt/ejp?a8mat=4BGQGT+1NJETE+40JM+1NJK7M',px:'https://www16.a8.net/0.gif?a8mat=4BGQGT+1NJETE+40JM+1NJK7M',b:'ラボル カード払いを見る'}
+  };
+  function card(a){return '<div class="card"><h3>'+a.t+'</h3><p>'+a.p+'</p><a class="btn" href="'+a.u+'" rel="nofollow sponsored">'+a.b+'</a><img border="0" width="1" height="1" src="'+a.px+'" alt=""></div>';}
+  function calc(amount,rate,days){
+    let fee=Math.floor(amount*rate/100);
+    if(mode==='card'&&amount>0&&amount<10000)fee=Math.max(fee,300);
+    const base=mode==='factoring'?Math.max(1,amount-fee):Math.max(1,amount);
+    const apr=days>0?fee/base*365/days*100:0;
+    return {fee,receive:amount-fee,apr,perDay:days>0?fee/days:0};
+  }
+  function render(){
+    const amount=num($('amount').value),rate=num($('rate').value),days=num($('days').value);
+    const r=calc(amount,rate,days);
+    if(mode==='factoring'){$('bigLabel').textContent='受け取れる金額';$('big').innerHTML=yen(r.receive)+'<small>円</small>';}
+    else{$('bigLabel').textContent='カード会社に払う合計（請求額＋手数料）';$('big').innerHTML=yen(amount+r.fee)+'<small>円</small>';}
+    $('fee').textContent=yen(r.fee)+'円';
+    $('apr').textContent='約'+(r.apr>=10?Math.round(r.apr):r.apr.toFixed(1))+'%';
+    $('perDay').textContent=yen(r.perDay)+'円';
+    let j='';
+    if(r.apr>=60)j='<div class="warn-box">年利に直すと約'+Math.round(r.apr)+'%。1回のつなぎなら選択肢ですが、毎月使うと大きな負担です。'+(mode==='factoring'?'支払いを延ばす方法（カード払い）や、委託元・元請けへの支払日の相談も検討しましょう。':'')+'</div>';
+    else if(r.apr>=20)j='<div class="warn-box" style="background:var(--safety-pale);color:#6b4a00">年利に直すと約'+Math.round(r.apr)+'%。カードローンの金利（年15%前後）より高めです。必要な金額だけに絞りましょう。</div>';
+    else if(amount>0)j='<div class="ok-box">年利に直すと約'+r.apr.toFixed(1)+'%。つなぎとしては比較的おだやかな負担です。</div>';
+    $('judge').innerHTML=j;
+    const rates=[3,5,10,15];if(!rates.includes(rate)&&rate>0){rates.push(rate);rates.sort((a,b)=>a-b);}
+    let h='<tr><th>手数料率</th><th>手数料</th><th>'+(mode==='factoring'?'受け取れる金額':'カード会社に払う合計')+'</th><th>年利換算</th></tr>';
+    for(const x of rates){const c=calc(amount,x,days);const me=x===rate?' class="me"':'';h+='<tr><td'+me+'>'+x+'%'+(x===3?'（カード払いの目安）':x===10?'（2社間の目安）':'')+'</td><td'+me+'>'+yen(c.fee)+'円</td><td'+me+'>'+yen(mode==='factoring'?c.receive:amount+c.fee)+'円</td><td'+me+'>約'+Math.round(c.apr)+'%</td></tr>';}
+    $('cmp').innerHTML=h;
+    let n='';
+    if(mode==='factoring'){
+      if(amount>=300000)n+=card(AD.ququmo)+card(AD.labol);
+      else n+=card(AD.labol)+card(AD.paytner);
+      n+=card(AD.card);
+    }else{
+      n+=card(AD.card);
+      n+='<div class="card"><h3>カード払いの仕組みと注意点を確認</h3><p>使える支払い・使えない支払い、リボ払いにしない、などの注意点をまとめています。</p><a class="btn" href="/articles/seikyusho-card-barai">請求書カード払いの解説を読む</a></div>';
+    }
+    $('nextCards').innerHTML=n;
+  }
+  function setMode(m){
+    mode=m;
+    document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.mode===m));
+    if(m==='factoring'){$('amountLabel').textContent='請求書の金額';$('daysLabel').textContent='何日早く受け取るか（本来の入金日まで）';$('rateHint').textContent='目安：2社間ファクタリングは10%前後';if(num($('rate').value)===3)$('rate').value='10';}
+    else{$('amountLabel').textContent='支払う請求書の金額';$('daysLabel').textContent='何日支払いを延ばすか（カードの引き落とし日まで）';$('rateHint').textContent='目安：請求書カード払いは3%前後';if(num($('rate').value)===10)$('rate').value='3';}
+    render();
+  }
+  document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+  document.querySelectorAll('.chips').forEach(c=>c.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const el=$(c.dataset.for);el.value=c.dataset.for==='amount'?Number(b.dataset.v).toLocaleString('ja-JP'):b.dataset.v;render();}));
+  ['amount','rate','days'].forEach(id=>$(id).addEventListener('input',render));
+  $('amount').addEventListener('blur',()=>{$('amount').value=num($('amount').value).toLocaleString('ja-JP');});
+  render();
+})();
+</script>
+</body>
+</html>
